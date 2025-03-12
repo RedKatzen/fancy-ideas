@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+
+    background: url('../imgs/background.jpg') no-repeat center;
+    background-size: cover;
+
+    .form-box {
+        position: relative;
+        width: 400px;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid rgba($color: #f9f9f9, $alpha: 0.5);
+        border-radius: 20px;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        
+        // intern elements
+
+        h2 {
+            font-size: 2em;
+            color: #f9f9f9;
+            text-align: center;
+        }
+
+        .inputbox {
+            position: relative;
+            margin: 30px 0;
+            width: 310px;
+            border-bottom: 2px solid #f9f9f9;
+
+            label {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                color: #f9f9f9;
+                font-size: 1em;
+                pointer-events: none;
+                transition: .5s;
+            }
+
+            input:focus ~ label,
+            input:valid ~ label{
+                top: -5px;
+            }
+            input {
+                width: 100%;
+                height: 50px;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-size: 1em;
+                padding: 0 35px 0 5px;
+                color: #f9f9f9;
+            }
+
+            ion-icon {
+                position: absolute;
+                right: 8px;
+                color: #f9f9f9;
+                font-size: 1.2em;
+                top: 20px;
+            }
+        }
+
+        .forget {
+            margin: -15px 0 15px;
+            font-size: .9em;
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+
+            input {
+                margin-right: 3px;
+            }
+
+            a {
+                color: #f9f9f9;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #f9f9f9;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .register {
+            font-size: .9em;
+            color: #f9f9f9;
+            text-align: center;
+            margin: 25px 0 10px;
+
+            a {
+                text-decoration: none;
+                color: #f9f9f9;
+                font-weight: 600;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

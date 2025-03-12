@@ -1,0 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  background-color: #4E00DF;
+}
+
+canvas{
+  display: block;
+  margin: 25vh auto;
+}

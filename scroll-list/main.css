@@ -1,0 +1,76 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start; /* Alinha o topo do h2 com a lista */
+  gap: 20px;
+}
+
+h2 {
+  position: relative; /* Em vez de sticky, usa-se relative */
+  font-size: 2rem;
+  min-width: 150px;
+  margin-top: 0; /* Alinha ao topo */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+/* Definindo a rolagem suave */
+li {
+  margin: 0;
+  scroll-snap-align: center;
+  padding: 10px;
+  font-size: 1.5rem;
+  animation-name: brighten;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+  animation-timeline: view();
+}
+
+/* Definindo cores dinâmicas para cada li */
+li:not(:last-of-type) {
+  color: oklch(65% 0.3 calc(var(--start) + (var(--step) * var(--i))));
+}
+
+/* Animação de brilho e opacidade */
+@keyframes brighten {
+  0%, 100% { opacity: 0.2; }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+/* Configurações personalizadas para os primeiros e últimos itens */
+li {
+  &:first-of-type { --start-opacity: 1; }
+  &:last-of-type {
+    --brightness: 1;
+    --end-opacity: 1;
+  }
+}
+@keyframes brighten {
+  0% { opacity: var(--start-opacity, 0.2); }
+  50% {
+    opacity: 1;
+    filter: brightness(var(--brightness, 1.2));
+  }
+  100% { opacity: var(--end-opacity, 0.2); }
+}
